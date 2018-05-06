@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Author: Jan van der Meiden                                           -->
+<!-- jvdmeiden@gmail.com                                                  -->
+<!-- Version: 20180503.00                                                 -->
+<!-- Copyright (c) 2018 Jan van der Meiden.                               -->
+<!-- Copying and distribution of this file, with or without modification, -->
+<!-- are permitted in any medium without royalty provided the copyright   -->
+<!-- notice and this notice are preserved.                                -->
+<!--                                                                      -->
+<!-- Morellet Tirets                                                      -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113123312-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-113123312-1');
+    </script>
+
+    <title>Morellet Tirets</title>
+    <link href="styles/morellet.css" rel="stylesheet" type="text/css">
+    <script src="scripts/morellet.js"></script>
+  </head>
+  <body onLoad="submitChoice()">
+    <div class="menu" onMouseOver="show('myConsole')" onMouseOut="hide('myConsole')">
+      <div id="myConsole">
+        <form name="choice" class="form" form onsubmit="return submitChoice();">
+          <div class="flex-container">
+            <div style="flex: 3" class="header"><br/>Graph Data<br/></div>
+          </div> 
+          <div class="flex-container">
+            <div style="flex: 1" class="header">Steps:</div>
+            <div style="flex: 2" class="input"><input value="7" type="number" name="steps" step="1" min="1" max="1000"></div>
+          </div> 
+          <div class="flex-container">
+            <div style="flex: 1" class="header">Line Width:</div>
+            <div style="flex: 2" class="input"><input value="2" type="number" name="lineWidth" step="0.1" min="0" max="100"></div>
+          </div> 
+          <div class="flex-container">
+            <div style="flex: 1" class="header">Line Distance:</div>
+            <div style="flex: 2" class="input"><input value="25" type="number" name="lineDistance" step="0.1" min="0.1" max="1000"></div>
+          </div> 
+          <div class="flex-container">
+            <div style="flex: 1" class="header">Initial Angle:</div>
+            <div style="flex: 2" class="input"><input value="0" type="number" name="initAngle" step="0.1" min="0" max="1"></div>
+          </div> 
+          <div class="flex-container">
+            <div style="flex: 12" class="header"><sub><a href="https://en.wikipedia.org/wiki/Fran%C3%A7ois_Morellet">See wikipedia on Morellet</a></sub></div>
+          </div> 
+          <div class="flex-container">
+            <div style="flex: 12" class="header"><button value="submit" type="submit">Submit</button></div>
+          </div> 
+        </form>
+      </div>
+    </div>
+    <svg id="svg" style="background: white"></svg>
+  </body>
+</html>
+
