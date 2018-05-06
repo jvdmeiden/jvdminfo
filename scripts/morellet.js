@@ -4,6 +4,22 @@ function show(id) {
 function hide(id) {
   document.getElementById(id).style.visibility = "hidden";
 }
+function init(){
+  console.log(getQueryVariable("steps"));
+  if (getQueryVariable("steps")){
+    document.forms["choice"]["steps"].value = getQueryVariable("steps");
+  } 
+  if (getQueryVariable("w")){
+    document.forms["choice"]["lineWidth"].value = getQueryVariable("w");
+  } 
+  if (getQueryVariable("d")){
+    document.forms["choice"]["lineDistance"].value = getQueryVariable("d");
+  } 
+  if (getQueryVariable("i")){
+    document.forms["choice"]["initAngle"].value = getQueryVariable("i");
+  } 
+  submitChoice();
+}
 function submitChoice(inp){
   var steps=parseInt(document.forms["choice"]["steps"].value);
   var lineWidth=parseFloat(document.forms["choice"]["lineWidth"].value);
@@ -93,4 +109,14 @@ function submitChoice(inp){
     fi+=fiDelta;
   }
   return false;
+}
+function getQueryVariable(variable)
+{
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
 }
